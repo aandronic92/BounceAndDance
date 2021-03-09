@@ -1,0 +1,126 @@
+*{
+    margin: 0em;
+    padding:0em;
+    box-sizing: border-box;
+}
+
+/*Nav bar*/
+.bg-custom { 
+    background-color: #84ceeb;
+}
+
+.navbar-brand img {
+    margin-left: 3.5em;
+    height: 3.3em;
+}
+
+.nav-item { 
+    font-size: large;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 0.1em;
+    margin-right: 1.5em;
+}
+
+.navbar-nav .nav-item a:hover{
+    border-radius: 0.5em;
+    padding: 0.6em;
+    background-color: #5680e9;
+    color: #c1c8e4;
+}
+
+
+/*Left column*/
+.col-md-7{
+    background-color: #8860d0;
+}
+p{
+    font-size: medium;
+    font-family: 'Poppins', sans-serif;
+    color: #c1c8e4;
+    text-indent: 1.5em;
+
+}
+/* Right column*/
+.col-md-5 {
+    background-color: #5680e9; 
+}
+
+/*Title and bar*/
+h2{
+    padding-top: 2em;
+    color:#c1c8e4 ;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 0.1em;
+}
+h3{
+    padding-top: 2em;
+    text-align: center;
+    margin-left: 0.5em;
+
+}
+
+.border{
+    width: 9em;
+    height: 1em;
+    background:#c1c8e4;
+    margin: 0.7em auto;
+}
+
+/*Login format*/
+.login-form label{
+    font-weight: bold;
+    color:#c1c8e4;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 0.2em;
+} 
+.fa-lock{
+    margin-right: 0.5em;
+    color: #c1c8e4;
+}
+.fa-user{
+    margin-right: 0.5em;
+    color: #c1c8e4;
+}
+
+/*Login button*/
+#login-btn{
+    float: right;
+    border: 0;
+    margin-top: 0.1em;
+    margin-bottom: 0.5em;
+    border-radius: 0.5em;
+    background-color: #fff;
+    color: #8860d0;
+    padding: .75em 3em;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+#login-btn:hover{
+    background: #84ceeb;
+}
+
+/*Footer*/
+footer{
+    color: #8860d0;
+    background-color: #84ceeb;
+    font-family: 'Poppins', sans-serif;
+    padding: 0.5em;
+}
+
+.col-md-4{
+    padding: .25em;
+}
+.col-md-4 a{ 
+    color: #8860d0;
+    font-size: x-large;
+    margin-right: 1em;
+}
+.col-md-4 a:hover{ 
+    border-radius: 0.5em;
+    padding: 0.5em;
+    background-color: #5680e9;
+ }
+
