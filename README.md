@@ -1,7 +1,7 @@
 # BounceAndDance
 Runninig Application instructions!
 SERVER SIDE
-1. Install node js
+1. Install node js in your PC
 2. Run **npm init**. You should see a file **package.json** which is used to record app details,configuration and dependencies
 3. Install application dependecies **npm install express body-parser mssql config validator cors express-jwt jwks-rsa express-jwt-authz**
   a. express – the Express framework.
