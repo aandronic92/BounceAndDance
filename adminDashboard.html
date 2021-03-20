@@ -6,50 +6,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
-    <title>AmdinDashboard</title>
+    <title>AdminDashboard</title>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-md bg-custom navbar-light">
-        <!-- Brand -->
-        <a class="navbar-brand" href="index.html"><img src="Images/logo.png" alt="Logo"></a>
-        <!-- Toggler/collapsibe Button -->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <!-- Navbar links -->
-        <div class="collapse navbar-collapse" id="collapsibleNavbar">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="index.html">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="about.html">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="contact.html">Contact</a>
-                </li>
-                <li class="nav-item">
-                    <a id="login" class="nav-link" href="#"> <span class="oi oi-account-login link-icon"></span> Login
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a id="get-profile" class="nav-link" href="adminDashboard.html"> <span
-                            class="oi oi-account-login link-icon"></span>
-                        Profile </a>
-                </li>
-                <li class="nav-item">
-                    <a id="logout" class="nav-link" href="#"> <span class="oi oi-account-logout link-icon"></span>
-                        Logout </a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+
+    <input type="checkbox" id="sidebar-toggle">
+
     <div class="sidebar">
         <div class="sidebar-header">
             <h3 class="brand">
-                <span class="oi-menu-alt">Admin Dashboard </span>
+                <span class="oi oi-unlink-icon"></span>
+                <span>Bounce And Dance</span>
             </h3>
+            <label for="sidebar-toggle" class="oi oi-menu"></label>
         </div>
         <div class="sidebar-menu">
             <ul>
@@ -95,50 +65,108 @@
 
     <div class="main-content">
         <main>
-            <h2 class="dash-title"> Overview </h2>
+            <h2 class="dash-title"> Dashboard </h2>
             <div class="dash-cards">
                 <div class="card-single">
                     <div class="card-body">
                         <span class="oi oi-people"></span>
                         <div>
                             <h5> Clients </h5>
-                            <h4>100</h4>
+                            <h4>10</h4>
                         </div>
                         <div class="card-footer">
                             <a href="">View all</a>
                         </div>
                     </div>
                 </div>
-                    <div class="card-single">
-                        <div class="card-body">
-                            <span class="oi oi-folder"></span>
-                            <div>
-                                <h5> Memberships </h5>
-                                <h4>3</h4>
-                            </div>
-                            <div class="card-footer">
-                                <a href="membership.html">View all</a>
-                            </div>
+                <div class="card-single">
+                    <div class="card-body">
+                        <span class="oi oi-folder"></span>
+                        <div>
+                            <h5> Memberships </h5>
+                            <h4>3</h4>
+                        </div>
+                        <div class="card-footer">
+                            <a href="membership.html">View all</a>
                         </div>
                     </div>
+                </div>
 
-                    <div class="card-single">
-                        <div class="card-body">
-                            <span class="oi oi-person"></span>
-                            <div>
-                                <h5> Instructors </h5>
-                                <h4>3</h4>
-                            </div>
-                            <div class="card-footer">
-                                <a href="membership.html">View all</a>
-                            </div>
+                <div class="card-single">
+                    <div class="card-body">
+                        <span class="oi oi-person"></span>
+                        <div>
+                            <h5> Instructors </h5>
+                            <h4>2</h4>
+                        </div>
+                        <div class="card-footer">
+                            <a href="#">View all</a>
                         </div>
                     </div>
-                
+                </div>
 
+                <div class="card-single">
+                    <div class="card-body">
+                        <span class="oi oi-shield"></span>
+                        <div>
+                            <h5> Boots </h5>
+                            <h4>2</h4>
+                        </div>
+                        <div class="card-footer">
+                            <a href="#">View all</a>
+                        </div>
+                    </div>
+                </div>
         </main>
+
+        <div class="activity-card">
+            <h3>Class Activity</h3>
+            <table class=" table-primary table-striped table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>Class</th>
+                        <th>Instructor</th>
+                        <th>Date</th>
+                        <th>Start</th>
+                        <th>Finish</th>
+                        <th>Rented Boots</th>
+                        <th>Number of clients</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>KJ + Strength</td>
+                        <td>Alex</td>
+                        <td>20 March 2021</td>
+                        <td>6:00 </td>
+                        <td>7:00</td>
+                        <td>6</td>
+                        <td>10</td>
+                    </tr>
+                    <tr>
+                        <td>KJ</td>
+                        <td>John</td>
+                        <td>21 March 2021</td>
+                        <td>10:00</td>
+                        <td>11:00</td>
+                        <td>3</td>
+                        <td>8</td>
+                    </tr>
+                    <tr>
+                        <td>KJ</td>
+                        <td>Ciaran</td>
+                        <td>20 March 2021</td>
+                        <td>3:00</td>
+                        <td>4:00</td>
+                        <td>5</td>
+                        <td>10</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
     </div>
-  
+
 
     <!-- Bootstrap 4 Dependencies -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"

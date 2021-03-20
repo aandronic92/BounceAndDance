@@ -142,6 +142,9 @@ footer{
 /*-----------------------------------------------------------*/
 /*-----------------------------------------------------------*/
 /*-----------------------------------------------------------*/
+#sidebar-toggle{
+    display: none;
+}
 
 .sidebar {
     height: 100%;
@@ -153,6 +156,7 @@ footer{
     background-color:  #84ceeb;
     color: #fff;
     overflow-y: auto;
+    transition: width 500ms;
 }
 
 .sidebar-header{
@@ -160,7 +164,7 @@ footer{
     justify-content: space-between;
     align-items: center;
     height: 60px;
-    padding: 0em 2em 1em;
+    padding: 0em 1em;
 }
 
 .sidebar-menu {
@@ -172,16 +176,46 @@ footer{
 }
 
 .sidebar a {
+    
     color: #fff;
+}
+
+.sidebar a:hover{
+    text-decoration: none;
+    list-style-type: none;
 }
 
 .sidebar a span:last-child{
     padding-left: 0.6em;
 }
 
+#sidebar-toggle:checked ~ .sidebar{
+    width: 60px;
+}
+
+#sidebar-toggle:checked ~ .sidebar .sidebar-header h3 span,
+#sidebar-toggle:checked ~ .sidebar li span:last-child {
+    display: none;
+ }
+
+#sidebar-toggle:checked ~ .sidebar .sidebar-header,
+#sidebar-toggle:checked ~ .sidebar li {
+    display: flex;
+    justify-content: center;
+ }
+
+#sidebar-toggle:checked ~ .main-content{
+    margin-left: 60px;
+}
+
+#sidebar-toggle:checked ~ .main-content header{
+    left: 60px;
+}
+
 .main-content{
     position: relative;
     margin-left: 240px;
+    transition: margin-left 500ms;
 }
 
 header {
@@ -197,12 +231,13 @@ header {
     align-items: center;
     justify-content: space-between;
     border-bottom: 1px solid #ccc;
+    transition: left 500ms;
 }
 
 main {
-    margin-top: 60px;
+    width: 100%;
+    height: 100%;
     background: #f1f5f9;
-    min-height: 90vh;
     padding: 1em;
 }
 
@@ -213,16 +248,125 @@ main {
 
 .dash-cards {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-column-gap: 5em;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 4em;
+    margin-left: 1em;
 }
 
 .card-single {
     background: #fff;
     border-radius: 7px;
-
+    margin-bottom: 0.5em;
 }
 
 .card-body span {
     font-size: 2em;
+}
+
+.card-footer a:hover{
+    padding:0.5em;
+    background-color: #8860d0;
+    color: #fff;
+    text-decoration: none;
+    list-style-type: none;
+    border-radius: 1em;
+}
+
+.activity-card {
+    background: #fff;
+    border-radius: 7px;
+}
+
+.activity-card thead {
+    background: #8860d0;
+    color: #fff;
+    text-align: center;
+    font-size: 1em;
+}
+ 
+.activity-card table{
+    width:100%;
+}
+
+th, td {
+    font-size: 1em;
+    padding: .6em;
+    text-align: center;
+    
+}
+
+@media only screen and (max-width: 1200px) {
+    
+    .sidebar{
+        width: 60px;
+        z-index: 150;
+    }
+    
+    .sidebar .sidebar-header h3 span,
+    .sidebar li span:last-child {
+        display: none;
+     }
+    
+    .sidebar .sidebar-header,
+    .sidebar li {
+        display: flex;
+        justify-content: center;
+     }
+    
+     .main-content{
+        margin-left: 60px;
+    }
+    
+    .main-content header{
+        left: 60px;
+        width: calc(100% - 60px);
+    }
+
+    #sidebar-toggle:checked ~ .sidebar{
+        width: 240px;
+    }
+    
+    #sidebar-toggle:checked ~ .sidebar .sidebar-header h3 span,
+    #sidebar-toggle:checked ~ .sidebar li span:last-child {
+        display: inline;
+     }
+    
+    #sidebar-toggle:checked ~ .sidebar .sidebar-header {
+        display: flex;
+        justify-content: space-between;
+     }
+
+
+    #sidebar-toggle:checked ~ .sidebar li {
+        display: block;
+     } 
+    
+    #sidebar-toggle:checked ~ .main-content{
+        margin-left: 60px;
+        width: auto;
+    }
+    
+    #sidebar-toggle:checked ~ .main-content header{
+        left: 60px;
+    }
+    
+}
+
+@media only screen and (max-width: 860px) {
+    .activity-grid{
+        display: block;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .dash-cards {
+        grid-template-columns: 100%;
+    }
+}
+@media only screen and (max-width: 450px) {
+    main {
+        padding-left: 1em;
+        padding-right: 1em;
+    }
+    
 }
