@@ -25,14 +25,14 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[MEMBERSHIP](
-	[membership_id] [int] IDENTITY(1,1) NOT NULL,
+	[membershipId] [int] IDENTITY(1,1) NOT NULL,
 	[userId] [int] NULL,
-	[membership_name] [varchar] (20) NOT NULL,
-	[sessions] [integer] NOT NULL,
-	[membership_price] [integer] NOT NULL,
+	[membershipName] [varchar] (20) NOT NULL,
+	[membershipSessions] [integer] NOT NULL,
+	[membershipPrice] [integer] NOT NULL,
 PRIMARY KEY CLUSTERED 
 (
-	[membership_id] ASC
+	[membershipId] ASC
 )WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
@@ -43,13 +43,14 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[BOOTS](
-	[boots_id] [int] IDENTITY(1,1) NOT NULL,
+	[bootsId] [int] IDENTITY(1,1) NOT NULL,
 	[UserId] [int] NULL,
-	[boots_size] [nvarchar](3) NOT NULL,
-	[price] [int] NOT NULL,
+	[bootsName] [nvarchar] (30) NOT NULL,
+	[bootsSize] [nvarchar](3) NOT NULL,
+	[bootsPrice] [int] NOT NULL,
 PRIMARY KEY CLUSTERED 
 (
-	[boots_id] ASC
+	[bootsId] ASC
 )WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
@@ -60,18 +61,21 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[CLASS](
-	[class_id] [int] IDENTITY(1,1) NOT NULL,
+	[classId] [int] IDENTITY(1,1) NOT NULL,
 	[userId] [int] NULL,
-	[class_date] [date] NOT NULL,
-	[class_time] [time] (7) NOT NULL,
+	[className] [nvarchar] (20,
+	[classDate] [date] NOT NULL,
+	[classTime] [time] (7) NOT NULL,
 PRIMARY KEY CLUSTERED 
 (
-	[class_id] ASC
+	[classId] ASC
 )WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
+
+FOREIGN KEY (Role) REFERENCES AppUser(Role)
 GO
 
-/****** Here I need to double check with someone ******/
+
 GO
 SET IDENTITY_INSERT [dbo].[AppUser] ON 
 GO
@@ -84,24 +88,23 @@ GO
 SET IDENTITY_INSERT [dbo].[AppUser] OFF
 GO
 
-/****** Here I need to double check with someone ******/
 
 SET IDENTITY_INSERT [dbo].[MEMBERSHIP] ON 
 GO
-INSERT [dbo].[MEMBERSHIP] ([membership_id],[membership_name], [sessions], [membership_price]) VALUES (1, N'Silver', 5, 50)
+INSERT [dbo].[MEMBERSHIP] ([membershipId],[membershipName], [membershipSessions], [membershipPrice]) VALUES (1, N'Silver', 5, 50)
 GO
-INSERT [dbo].[MEMBERSHIP] ([membership_id], [membership_name], [sessions], [membership_price]) VALUES (2, N'Gold', 7, 65)
+INSERT [dbo].[MEMBERSHIP] ([membershipId], [membershipName], [membershipSessions], [membershipPrice]) VALUES (2, N'Gold', 7, 65)
 GO
-INSERT [dbo].[MEMBERSHIP] ([membership_id],[membership_name], [sessions], [membership_price]) VALUES (3, N'Platinium', 11, 100)
+INSERT [dbo].[MEMBERSHIP] ([membershipId],[membershipName], [membershipSessions], [membershipPrice]) VALUES (3, N'Platinium', 11, 100)
 GO
 SET IDENTITY_INSERT [dbo].[MEMBERSHIP] OFF
 GO
 
 SET IDENTITY_INSERT [dbo].[BOOTS] ON 
 GO
-INSERT [dbo].[BOOTS] ([boots_id], [boots_size], [price]) VALUES (1, N'S',10 )
+INSERT [dbo].[BOOTS] ([bootsId], [bootsName], [bootsSize], [bootsPrice]) VALUES (1, N'Bounce1', N'S',10 )
 GO
-INSERT [dbo].[BOOTS] ([boots_id], [boots_size], [price]) VALUES (2, N'M', 10)
+INSERT [dbo].[BOOTS] ([bootsId], [bootsName], [bootsSize], [bootsPrice]) VALUES (2, N'Bounce2', N'M', 10)
 GO
 SET IDENTITY_INSERT [dbo].[BOOTS] OFF
 GO
