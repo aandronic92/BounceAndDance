@@ -108,5 +108,3 @@ INSERT [dbo].[BOOTS] ([bootsId], [bootsName], [bootsSize], [bootsPrice]) VALUES 
 GO
 SET IDENTITY_INSERT [dbo].[BOOTS] OFF
 GO
-
-
