@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>BounceAndDance</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md bg-custom navbar-light">
+        <!-- Brand -->
+        <a class="navbar-brand" href="index.html"><img src="Images/logo.png" alt="Logo"></a>
+        <!-- Toggler/collapsibe Button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- Navbar links -->
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+               
+                <li class="nav-item">
+                    <a class="nav-link" href="adminDashboard.html">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a id="login" class="nav-link" href="#" > <span class="oi oi-account-login link-icon"></span> Login </a>
+                </li>
+                <li class="nav-item">
+                    <a id="get-profile" class="nav-link" href="adminDashboard.html" > <span class="oi oi-account-login link-icon"></span> Profile </a>
+                </li>
+                <li class="nav-item">
+                    <a id="logout" class="nav-link" href="#" > <span class="oi oi-account-logout link-icon"></span> Logout </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-7 ">
+                <div class="col">
+                    <h2>What is Kangoo Jumps?</h2>
+                    <p>Kangoo Jumps is the worldwide leading brand for safe mobile rebound exercise.
+                        Kangoo Jumps ultimate vision is to create a new way of life that skillfully
+                        combines health, fitness and fun for all.. As a result of their numerous and unique benefits, 
+                        Kangoo Jumps boots are now hailed as a leading revolution in the fitness and sport industries.
+                         Whether it is to improve overall fitness, strengthen the skeletal system, boost weight loss,
+                          strengthen muscles or enhance sport performance, fitness has never been so beneficial, fun or safer!
+                    </p>
+                </div>
+                <div class="col">
+                    <h2>What are Kangoo Jumps rebound shoes?</h2>
+                    <p>Kangoo Jumps rebound shoes are perfect for cross-training activities
+                        and provide any additional health and fitness benefits.
+                        They are designed for all ages and fitness levels and are very easy
+                        to use. They are results of more than 20 years of studies and product
+                        development to make exercise safe and incredibly fun.
+                    </p>
+                </div>
+                <div class="col ">
+                    <h2>How do they work?</h2>
+                    <p>The patented spring system compresses with each step to absorb the impact
+                         of athletic activity that can cause damage to the joints. 
+                         The end result is a feeling of lightness that can be  compared to "walking on air".
+                        Because the sole of the shoe from right to left is flat, lateral stability is not
+                        compromised and the user will feel safe and stable throughout the exercise session, 
+                        regardless of the choice of activity.
+                    </p>
+                </div>
+
+            </div>
+            <div class="col-md-5">
+                <h2>Login</h2>
+                <div class="border"></div>
+
+                <form action="" class="login-form">
+                    <div class="form-group">
+                        <i class="fas fa-user"></i><label for="username">Username</label>
+                        <input name="username" class="form-control" type="text" placeholder="Enter your username"
+                            maxlength="70" />
+                    </div>
+                    <div class="form-group">
+                        <i class="fas fa-lock"></i><label for="password">Password</label>
+                        <input name="password" class="form-control" type="password" placeholder="Enter your password"
+                            maxlength="70" />
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox"> Remember me</label>
+                    </div>
+                    <button class="btn btn-primary btn-block" id="login-btn2">Login</button>
+                    <button class="btn btn-primary btn-block" id="bookAclass-btn">Book a class</button>
+                    
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+
+        <div class="row text-center constainer-fluid ">
+            <div class="col-md-4 text-center">
+                <a href="#"><i class="fab fa-google-plus-g "></i></a>
+                <a href="#"><i class="fab fa-facebook-square"></i></a>
+                <a href="#"><i class="fab fa-instagram "></i></a>
+            </div>
+
+            <div class="col-md-4">
+                <p >&copy; 2020 Copyright Kangoo Jumps</p>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+
+    </footer>
+
+    <script src="https://cdn.auth0.com/js/auth0/9.14.0/auth0.min.js"></script>
+    <script src="./javascript/jwt-decode.js"></script>
+    <script src="./javascript/jwAuth.js"></script>
+    <script src="./javascript/auth0-variables.js"></script>
+    <script src="./javascript/script.js"></script>
+    <!-- Bootstrap 4 Dependencies -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <link rel="stylesheet" href="./font/css/open-iconic-bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+</body>
+</body>
+
+</html>
