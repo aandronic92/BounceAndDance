@@ -26,7 +26,7 @@ SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[MEMBERSHIP](
 	[membershipId] [int] IDENTITY(1,1) NOT NULL,
-	[userId] [int] NULL,
+	[UserId] [int] NULL,
 	[membershipName] [varchar] (20) NOT NULL,
 	[membershipSessions] [integer] NOT NULL,
 	[membershipPrice] [integer] NOT NULL,
@@ -62,7 +62,7 @@ SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[CLASS](
 	[classId] [int] IDENTITY(1,1) NOT NULL,
-	[userId] [int] NULL,
+	[UserId] [int] NULL,
 	[className] [nvarchar] (20,
 	[classDate] [date] NOT NULL,
 	[classTime] [time] (7) NOT NULL,
