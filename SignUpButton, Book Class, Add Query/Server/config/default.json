@@ -2,7 +2,7 @@
     "connection": {
         "user": "dbadmin",
         "password": "Administrator1",
-        "server": "finalproject-bad-db.database.windows.net",
+        "server": "finalproject-db.database.windows.net",
         "database": "BounceAndDance-db",
         "parseJSON": true,
         "options": {
