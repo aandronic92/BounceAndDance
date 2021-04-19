@@ -1,0 +1,257 @@
+* {
+    margin: 0em;
+    padding: 0em;
+    box-sizing: border-box;
+    
+}
+
+/*Nav bar*/
+
+.bg-custom {
+    background-color: #84ceeb;
+}
+
+.navbar-brand img {
+    margin-left: 3.5em;
+    height: 3.3em;
+}
+
+.nav-item {
+    font-size: large;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 0.1em;
+    margin-right: 1.5em;
+}
+
+.navbar-nav .nav-item a:hover {
+    border-radius: 0.5em;
+    padding: 0.6em;
+    background-color: #5680e9;
+    color: #c1c8e4;
+}
+
+p {
+    font-size: large;
+    font-family: 'Poppins', sans-serif;
+    /*color: #c1c8e4;*/
+    text-indent: 1.5em;
+}
+
+/*Title and bar*/
+
+h2 {
+    padding-top: 1em;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 0.1em;
+}
+
+h3 {
+    text-align: center;
+    margin-left: 0.5em;
+}
+
+
+
+/*Footer*/
+
+footer {
+    color: #8860d0;
+    background-color: #84ceeb;
+    font-family: 'Poppins', sans-serif;
+    padding: 0.5em;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+    width: 100%;
+}
+
+.col-md-4 {
+    padding: .25em;
+}
+
+.col-md-4 a {
+    color: #8860d0;
+    font-size: x-large;
+    margin-right: 1em;
+}
+
+.col-md-4 a:hover {
+    border-radius: 0.5em;
+    padding: 0.5em;
+    background-color: #5680e9;
+}
+
+
+/**
+ * Demo Styles
+ */
+
+html {
+    height: 100%;
+    box-sizing: border-box;
+    
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body{
+    
+    position: relative;
+    margin: 0;
+    min-height: 100%;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-weight: 100;
+    font-size: 14px;
+    line-height: 30px;
+    padding-bottom: 120px !important;
+}
+
+.demo {
+    margin: 0 auto;
+    padding-top: 32px;
+    max-width: 640px;
+    width: 94%;
+    
+}
+
+.demo h1 {
+    margin-top: 0;
+}
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,600,400italic);
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: antialiased;
+    -o-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+.container {
+    max-width: 400px;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+}
+
+#contact input[type="text"],
+#contact input[type="email"],
+#contact input[type="tel"],
+#contact input[type="url"],
+#contact textarea,
+#contact button[type="submit"] {
+    font: 400 12px/16px "Roboto", Helvetica, Arial, sans-serif;
+}
+
+#contact {
+    background: #F9F9F9;
+    padding: 25px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+#contact h3 {
+    display: block;
+    font-size: 30px;
+    font-weight: 300;
+    margin-bottom: 10px;
+}
+
+
+fieldset {
+    border: medium none !important;
+    margin: 0 0 10px;
+    min-width: 100%;
+    padding: 0;
+    width: 100%;
+}
+
+#contact input[type="text"],
+#contact input[type="email"],
+#contact input[type="tel"],
+#contact input[type="url"],
+#contact textarea {
+    width: 100%;
+    border: 1px solid #ccc;
+    background: #FFF;
+    margin: 0 0 5px;
+    padding: 10px;
+}
+
+#contact input[type="text"]:hover,
+#contact input[type="email"]:hover,
+#contact input[type="tel"]:hover,
+#contact input[type="url"]:hover,
+#contact textarea:hover {
+    -webkit-transition: border-color 0.3s ease-in-out;
+    -moz-transition: border-color 0.3s ease-in-out;
+    transition: border-color 0.3s ease-in-out;
+    border: 1px solid #aaa;
+}
+
+#contact textarea {
+    height: 100px;
+    max-width: 100%;
+    resize: none;
+}
+
+.copyright {
+    text-align: center;
+}
+
+#contact input:focus,
+#contact textarea:focus {
+    outline: 0;
+    border: 1px solid #aaa;
+}
+
+::-webkit-input-placeholder {
+    color: #888;
+}
+
+:-moz-placeholder {
+    color: #888;
+}
+
+::-moz-placeholder {
+    color: #888;
+}
+
+:-ms-input-placeholder {
+    color: #888;
+}
+
+#Home {
+    padding: 0 2%;
+    
+}
+
+.wrap {
+    height: 500px;
+}
+
+#bookClass {
+    cursor: pointer;
+    width: 100%;
+    border: none;
+    background: #8860d0;
+    color: #FFF;
+    margin: 0 0 5px;
+    padding: 10px;
+    font-size: 15px;
+}
+
+#bookClass:hover {
+    background: #84ceeb;
+}
