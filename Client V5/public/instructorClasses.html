@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/styleAdmin.css">
+    <link rel="stylesheet" href="./css/loader.css">
+    <link rel="stylesheet" href="./css/calender.css">
+    <title>Instructor Classes</title>
+</head>
+
+<body>
+    <!-- Loading Spinner Wrapper-->
+    <div class="loader text-center" id="loader">
+        <div class="loader-inner">
+
+            <!-- Animated Spinner -->
+            <div class="lds-roller mb-3">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <!-- Spinner Description Text [For Demo Purpose]-->
+            <h4 class="text-uppercase font-weight-bold">Have fun while you get fit</h4>
+        </div>
+    </div>
+    <input type="checkbox" id="sidebar-toggle">
+
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h3 class="brand">
+                <span class="oi oi-unlink-icon"></span>
+                <span>Bounce And Dance</span>
+            </h3>
+            <label for="sidebar-toggle" class="oi oi-menu"></label>
+        </div>
+        <div class="sidebar-menu">
+            <ul>
+                <li>
+                    <a href="instructorDashboard.html">
+                        <span class=" oi oi-home link-icon"></span>
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="instructorClasses.html">
+                        <span class="oi oi-folder link-icon"></span>
+                        <span>Schedules</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="instructorMemberships.html">
+                        <span class="oi oi-person link-icon"></span>
+                        <span>Memberships</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="instructorQueries.html">
+                        <span class="oi oi-people link-icon"></span>
+                        <span>Queries</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="instructorClients.html">
+                        <span class="oi oi-people link-icon"></span>
+                        <span>Clients</span>
+                    </a>
+                </li>
+                <li>
+                    <a id="logout" href="#">
+                        <span class="oi oi-eye link-icon"></span>
+                        <span>Logout</span>
+                    </a>
+                    <a hidden id="login" href="#">
+                        <span class="oi oi-eye link-icon"></span>
+                        <span>Login</span>
+                    </a>
+                    <a hidden id="signup" href="#">
+                        <span class="oi oi-eye link-icon"></span>
+                        <span>Signup</span>
+                    </a>
+                </li>
+                <li style="display: none;">
+                    <a id="get-profile" href="clientProfile.html">
+                        <span class="oi oi-eye link-icon"></span>
+                        <span>My Profile</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="Home">
+            <!-- <div class="alert alert-danger" id="error" style="display: none;">
+                <strong>Danger!</strong> Indicates a dangerous or potentially negative action.
+            </div>  -->
+            <main>
+
+                <h2 class="dash-title"> Classes </h2>
+                <div class="calendar" id="calendar">
+
+                    <!-- Calendar toolbar -->
+                    <div class="calendar-toolbar">
+                        <!-- Calendar "today" button -->
+                        <button data-toggle="calendar" data-action="today" class="btn btn-default">
+                        Today
+                      </button>
+                        <!-- Calendar "date-indicator" span -->
+                        <div class="calendar-current-date" data-day-format="MM/DD/YYYY" data-week-format="MM/DD/YYYY" data-month-format="MMMM, YYYY">
+                            (placeholder)
+                        </div>
+                    </div>
+
+                </div>
+            </main>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="activity-card">
+                        <h3>Approved Classes</h3>
+                        <table class=" table-primary table-striped table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Client</th>
+                                    <th>Date</th>
+                                    <th>Time</th>
+                                </tr>
+                            </thead>
+                            <tbody id="approvedDash">
+                                <tr>
+                                    <td colspan=6>No Classes to display</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="activity-card">
+                        <h3>Pending Classes</h3>
+                        <table class=" table-primary table-striped table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Client</th>
+                                    <th>Date</th>
+                                    <th>Time</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="pendingDash">
+                                <tr>
+                                    <td colspan=6>No Classes to display</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://cdn.auth0.com/js/auth0/9.14.0/auth0.min.js"></script>
+    <script src="./javascript/jwt-decode.js"></script>
+    <script src="./javascript/jwAuth.js"></script>
+    <script src="./javascript/auth0-variables.js"></script>
+    <script src="./javascript/script.js"></script>
+    <script src="./javascript/instructor.js"></script>
+    <!-- Bootstrap 4 Dependencies -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.10/js/ripples.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.10/js/material.min.js"></script>
+    <script type="text/javascript" src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script type="text/javascript" src="http://momentjs.com/downloads/moment-with-locales.min.js"></script>
+    <script type="text/javascript" src="javascript/jquery.datetimepicker.full.js"></script>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <link rel="stylesheet" href="./font/css/open-iconic-bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/jquery.datetimepicker.min.css" />
+    <script src='http://fullcalendar.io/js/fullcalendar-2.1.1/lib/moment.min.js'></script>
+    <script src='http://fullcalendar.io/js/fullcalendar-2.1.1/lib/jquery.min.js'></script>
+    <script src="http://fullcalendar.io/js/fullcalendar-2.1.1/lib/jquery-ui.custom.min.js"></script>
+    <script src='http://fullcalendar.io/js/fullcalendar-2.1.1/fullcalendar.min.js'></script>
+</body>
+<script>
+    loadCalender();
+    setEvents();
+    loadInstructorClasses();
+</script>
+
+</html>
