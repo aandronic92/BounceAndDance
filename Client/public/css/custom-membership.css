@@ -1,0 +1,27 @@
+#main-membership {
+    background-image: url(../Images/slide8.jpg);
+}
+
+#Membership {
+    background-color: rgb(0 0 0 / 42%);
+    padding: 15px;
+    margin-top: 25px;
+}
+
+#Membership h3.header { 
+    margin-top: 25px;
+    text-align: left;
+    color: #fff;
+}
+
+#Membership p.subheader { 
+    text-indent: 1em;
+    color: #fff;
+}
+
+
+#Membership .card { margin-bottom: 20px ;}
+#Membership .card-text { 
+    text-align: center;
+    text-indent: 0;
+}

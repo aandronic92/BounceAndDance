@@ -2,18 +2,13 @@
     margin: 0em;
     padding: 0em;
     box-sizing: border-box;
-}
-
-html {
-    overflow-x: hidden;
+    text-decoration: none;
+    list-style-type: none;
+    font-family: 'Poppins', sans-serif;
 }
 
 
 /*Nav bar*/
-
-nav {
-    z-index: 100000;
-}
 
 .bg-custom {
     background-color: #84ceeb;
@@ -27,9 +22,8 @@ nav {
 .nav-item {
     font-size: large;
     font-weight: bold;
-    font-family: 'Poppins', sans-serif;
     letter-spacing: 0.1em;
-    margin-right: 1.2em;
+    margin-right: 1.5em;
 }
 
 .navbar-nav .nav-item a:hover {
@@ -39,26 +33,98 @@ nav {
     color: #c1c8e4;
 }
 
+main {
+    background: white;
+    width: 90%;
+    max-width: 800px;
+    margin: 50px auto;
+    font-family: Calibri, Arial, sans-serif;
+    padding: 20px;
+}
+
+h1,
 p {
-    font-size: large;
-    font-family: 'Poppins', sans-serif;
-    /*color: #c1c8e4;*/
-    text-indent: 1.5em;
+    text-align: center;
+}
+
+label {
+    display: block;
+    margin: 1em 0 .2em;
 }
 
 
-/*Title and bar*/
+/* single-line text, checkbox, and button */
 
-h2 {
-    padding-top: 1em;
-    text-align: center;
-    font-family: 'Poppins', sans-serif;
-    letter-spacing: 0.1em;
+input,
+select,
+textarea {
+    display: block;
+    width: 100%;
+    padding: .3em;
+    font-size: 20px;
+    background-color: #fbfbfb;
+    border: solid 1px #CCC;
+    resize: vertical;
 }
 
-h3 {
-    text-align: center;
-    margin-left: 0.5em;
+textarea {
+    min-height: 180px;
+}
+
+select {
+    color: indigo;
+}
+
+option {
+    color: blue;
+    background: rgb(157 244 255 / 22%);
+}
+
+input[type=checkbox] {
+    display: inline;
+    width: auto;
+    color: red;
+}
+
+input[type=submit] {
+    background: rgb(0, 105, 119);
+    margin: 1em 0 0;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    transition: all .3s ease-out;
+}
+
+input:focus,
+input:hover,
+select:focus,
+select:hover,
+textarea:focus,
+textarea:hover {
+    background: rgb(157 244 255 / 22%);
+}
+
+
+/* hover and focus states */
+
+input[type=submit]:hover,
+input[type=submit]:focus {
+    background: lightgreen;
+    outline: none;
+}
+
+@media screen and (min-width:600px) {
+    /*  make the form 2 columns */
+    form:after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+    .column {
+        width: 50%;
+        padding: 1em;
+        float: left;
+    }
 }
 
 
@@ -93,64 +159,6 @@ footer {
     background-color: #5680e9;
 }
 
-
-/**
- * Demo Styles
- */
-
-html {
-    height: 100%;
-    box-sizing: border-box;
-}
-
-*,
-*:before,
-*:after {
-    box-sizing: inherit;
-}
-
-body {
-    position: relative;
-    margin: 0;
-    min-height: 100%;
-    font-family: "Helvetica Neue", Arial, sans-serif;
-    font-weight: 100;
-    font-size: 14px;
-    line-height: 30px;
-    padding-bottom: 120px !important;
-}
-
-.demo {
-    margin: 0 auto;
-    padding-top: 32px;
-    max-width: 640px;
-    width: 94%;
-}
-
-.demo h1 {
-    margin-top: 0;
-}
-
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,600,400italic);
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
-    -moz-font-smoothing: antialiased;
-    -o-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
-}
-
-.container {
-    max-width: 400px;
-    width: 100%;
-    margin: 0 auto;
-    position: relative;
-}
-
 #contact input[type="text"],
 #contact input[type="email"],
 #contact input[type="tel"],
@@ -166,12 +174,6 @@ body {
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 
-#bookClassForm {
-    background: #F9F9F9;
-    padding: 25px;
-    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-}
-
 #contact h3 {
     display: block;
     font-size: 30px;
@@ -179,11 +181,11 @@ body {
     margin-bottom: 10px;
 }
 
-#bookClassForm h3 {
+#contact h4 {
+    margin: 5px 0 15px;
     display: block;
-    font-size: 30px;
-    font-weight: 300;
-    margin-bottom: 10px;
+    font-size: 13px;
+    font-weight: 400;
 }
 
 fieldset {
@@ -223,6 +225,28 @@ fieldset {
     resize: none;
 }
 
+#contact button[type="submit"] {
+    cursor: pointer;
+    width: 100%;
+    border: none;
+    background: #4CAF50;
+    color: #FFF;
+    margin: 0 0 5px;
+    padding: 10px;
+    font-size: 15px;
+}
+
+#contact button[type="submit"]:hover {
+    background: #43A047;
+    -webkit-transition: background 0.3s ease-in-out;
+    -moz-transition: background 0.3s ease-in-out;
+    transition: background-color 0.3s ease-in-out;
+}
+
+#contact button[type="submit"]:active {
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
 .copyright {
     text-align: center;
 }
@@ -247,37 +271,4 @@ fieldset {
 
 :-ms-input-placeholder {
     color: #888;
-}
-
-#Home {
-    padding: 0 2%;
-}
-
-.wrap {
-    height: 500px;
-}
-
-
-@media only screen and (min-device-width: 540px) and (max-device-width: 1024px) and (orientation:portrait) {
-    .text {
-        max-width: 100% !important;
-        flex: 100% !important;
-    }
-    .form {
-        max-width: 50% !important;
-        margin-left: 25% !important;
-        flex: 50% !important;
-    }
-}
-
-@media only screen and (max-device-width: 540px) and (orientation:portrait) {
-    .flex-rows {
-        flex-direction: column-reverse !important;
-    }
-}
-
-.firstbox {
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
