@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/styleAdmin.css">
+    <link rel="stylesheet" href="./css/loader.css">
+    <title>Client Classes</title>
+</head>
+
+<body>
+    <!-- Loading Spinner Wrapper-->
+    <div class="loader text-center" id="loader">
+        <div class="loader-inner">
+
+            <!-- Animated Spinner -->
+            <div class="lds-roller mb-3">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <!-- Spinner Description Text [For Demo Purpose]-->
+            <h4 class="text-uppercase font-weight-bold">Have fun while you get fit</h4>
+        </div>
+    </div>
+    <input type="checkbox" id="sidebar-toggle">
+
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h3 class="brand">
+                <span class="oi oi-unlink-icon"></span>
+                <span>Bounce And Dance</span>
+            </h3>
+            <label for="sidebar-toggle" class="oi oi-menu"></label>
+        </div>
+        <div class="sidebar-menu">
+            <ul>
+                <li>
+                    <a href="clientDashboard.html">
+                        <span class=" oi oi-home link-icon"></span>
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="clientMembership.html">
+                        <span class="oi oi-folder link-icon"></span>
+                        <span>My Membership</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="clientClasses.html">
+                        <span class="oi oi-person link-icon"></span>
+                        <span>My Classes</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="clientQueries.html">
+                        <span class="oi oi-people link-icon"></span>
+                        <span>My Queries</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a id="logout" href="#">
+                        <span class="oi oi-eye link-icon"></span>
+                        <span>Logout</span>
+                    </a>
+                    <a hidden id="login" href="#">
+                        <span class="oi oi-eye link-icon"></span>
+                        <span>Login</span>
+                    </a>
+                    <a hidden id="signup" href="#">
+                        <span class="oi oi-eye link-icon"></span>
+                        <span>Signup</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="Home">
+            <main>
+
+                <h2 class="dash-title"> Classes </h2>
+                <button id="bookClass" name="submit" type="button" data-toggle="modal" data-target="#bookClassFormDialog">Book A Class</button>
+                <div class="modal fade" id="bookClassFormDialog">
+
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+
+                            <!-- Header -->
+                            <div class="modal-header">
+                                <h4 class="modal-title" id="bookClassFormTitle">Book a Class</h4>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+
+                            <!-- Body - contains form inputs-->
+                            <!-- The id of each input matches a bookClass property -->
+                            <div class="modal-body">
+                                <form id="bookClassForm">
+
+                                    <div class="form-group">
+                                        <label for="instructorId">Instructor:</label>
+                                        <select id="instructorId" type="text" class="form-control" name="instructorId">
+
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="bookClassName">Name:</label>
+                                        <input class="form-control" name="bookClassName" id="bookClassName" placeholder="Your name" type="text" tabindex="1" value="" disabled required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="bookClassEmail">Email:</label>
+                                        <input class="form-control" name="bookClassEmail" id="bookClassEmail" placeholder="Your Email Address" type="email" tabindex="2" value="" disabled required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="bookClassPrice">Date and Time:</label>
+                                        <input type="text" value="" id="datetimepicker" class="form-control" /><br><br>
+                                    </div>
+
+                                </form>
+                            </div>
+
+                            <!-- footer -->
+                            <div class="modal-footer">
+                                <!-- Buttons - note onclick and data-dismiss attribtes-->
+                                <button onclick="bookClientClass();" type="button" class="btn btn-primary" data-dismiss="modal">Save</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <div class="activity-card">
+                <h3 id="myclassescount"></h3>
+                <h4 id="remainingClasses"></h4> <a type="button" class="btn btn-danger" href="clientMembership.html" id="upgradeMem">Upgrade Membership</a>
+                <h3>My Classes</h3>
+                <table class=" table-primary table-striped table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>Class</th>
+                            <th>Instructor</th>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="userClasses">
+                        <tr>
+                            <td>No Classes to display</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://cdn.auth0.com/js/auth0/9.14.0/auth0.min.js"></script>
+    <script src="./javascript/jwt-decode.js"></script>
+    <script src="./javascript/jwAuth.js"></script>
+    <script src="./javascript/auth0-variables.js"></script>
+    <script src="./javascript/script.js"></script>
+    <script src="./javascript/client.js"></script>
+    <!-- Bootstrap 4 Dependencies -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.10/js/ripples.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.10/js/material.min.js"></script>
+    <script type="text/javascript" src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script type="text/javascript" src="http://momentjs.com/downloads/moment-with-locales.min.js"></script>
+    <script type="text/javascript" src="javascript/jquery.datetimepicker.full.js"></script>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <link rel="stylesheet" href="./font/css/open-iconic-bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/jquery.datetimepicker.min.css" />
+</body>
+<script>
+    var today = new Date();
+    var dd = today.getDate();
+
+    var mm = today.getMonth() + 1;
+    var yyyy = today.getFullYear();
+    if (dd < 10) {
+        dd = '0' + dd;
+    }
+
+    if (mm < 10) {
+        mm = '0' + mm;
+    }
+    today = yyyy + '/' + mm + '/' + dd;
+    //    alert(today);
+    $('#datetimepicker').datetimepicker({
+        dayOfWeekStart: 1,
+        lang: 'en',
+        disabledDates: ['1986/01/08', '1986/01/09', '1986/01/10'],
+        startDate: today,
+        minDate: 0,
+        step: 60,
+        format: 'Y-m-d H:i:s'
+    });
+    const userEmail = sessionStorage.getItem('email');
+    const userNickname = sessionStorage.getItem('nickname');
+    document.getElementById('bookClassName').value = userNickname;
+    document.getElementById('bookClassEmail').value = userEmail;
+    returnUserClasses();
+    loadInstructorsList();
+    remainingClasses();
+</script>
+
+</html>

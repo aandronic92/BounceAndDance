@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/contact.css">
+    <title>Contact</title>
+</head>
+<nav class="navbar navbar-expand-md bg-custom navbar-light">
+    <!-- Brand -->
+    <a class="navbar-brand" href="index.html"><img src="Images/logo.png" alt="Logo"></a>
+    <!-- Toggler/collapsibe Button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <!-- Navbar links -->
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="#" onclick="handleRedirection()">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="about.html">About</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+            <li class="nav-item">
+                <a id="login" class="nav-link" href="#">  Login </a>
+            </li>
+            <li class="nav-item">
+                <a id="signup" class="nav-link" href="#">  SignUp
+                </a>
+            </li>
+            <li class="nav-item" id="get-profile">
+                <a class="nav-link" href="#">  Profile </a>
+            </li>
+            <li class="nav-item">
+                <a id="logout" class="nav-link" href="#">  Logout
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<body>
+
+    <body>
+
+        <main>
+            <form id="contact" class="secondbox">
+                <h1>Contact Us</h1>
+                <p>Please take a moment to get in touch, we will get back to you shortly.</p>
+
+                <div class="column">
+                    <label for="the-name">Your Name</label>
+                    <input id="userNameQuery" placeholder="Your name" type="text" tabindex="1" required>
+
+                    <label for="the-email">Email Address</label>
+                    <input id="userEmailQuery" placeholder="Your Email Address" type="email" tabindex="2" required>
+
+                </div>
+                <div class="column">
+                    <label for="the-message">Message</label>
+                    <textarea id="userQuery" placeholder="Type your query here...." tabindex="5" required></textarea>
+
+                    <input onclick="submitQuery()" type="submit" value="Send Message">
+                </div>
+            </form>
+            </div>
+
+        </main>
+
+
+        <footer>
+            <div class="row text-center ">
+                <div class="col-md-4 text-center">
+                    <a href="#"><i class="fab fa-google-plus-g "></i></a>
+                    <a href="#"><i class="fab fa-facebook-square"></i></a>
+                    <a href="#"><i class="fab fa-instagram "></i></a>
+                </div>
+
+                <div class="col-md-4 text-center">
+                    <p>&copy; 2020 Copyright Kangoo Jumps</p>
+                </div>
+
+
+                <div class="col-md-4"></div>
+            </div>
+
+
+        </footer>
+
+        <script src="https://cdn.auth0.com/js/auth0/9.14.0/auth0.min.js"></script>
+        <script src="./javascript/jwt-decode.js"></script>
+        <script src="./javascript/jwAuth.js"></script>
+        <script src="./javascript/auth0-variables.js"></script>
+        <script src="./javascript/script.js"></script>
+        <!-- Bootstrap 4 Dependencies -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+        <link rel="stylesheet" href="./font/css/open-iconic-bootstrap.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    </body>
+
+</html>
