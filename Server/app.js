@@ -18,7 +18,7 @@ app.use((req, res, next) => {
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
-}); 
+});
 
 // cors
 // Simple Usage (Enable All CORS Requests)
@@ -35,11 +35,13 @@ app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 app.use('/', require('./controllers/index'));
 //route to membership
 app.use('/membership', require('./controllers/membershipController'));
-
+app.use('/user', require('./controllers/userController'));
+app.use('/class', require('./controllers/classController'));
+app.use('/query', require('./controllers/queryController'));
 
 // catch 404 and forward to error handler
-app.use(function (req, res, next) {
-    var err = new Error('Not Found: '+ req.method + ":" + req.originalUrl);
+app.use(function(req, res, next) {
+    var err = new Error('Not Found: ' + req.method + ":" + req.originalUrl);
     err.status = 404;
     next(err);
 });

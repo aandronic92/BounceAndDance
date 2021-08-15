@@ -1,5 +1,5 @@
 // require the database connection
-const membershipRepository = require ( '../repositories/membershipRepository.js');
+const membershipRepository = require('../repositories/membershipRepository.js');
 const membershipValidator = require('../validators/membershipValidator.js');
 
 // Input validation package
@@ -8,14 +8,14 @@ const validator = require('validator');
 
 // Get all memberships via the repository
 // return memberships
-let getMemberships = async () => {
+let getMemberships = async() => {
     let memberships = await membershipRepository.getMemberships();
     return memberships;
 };
 
 // Get membership by id via the repository
 
-let getMembershipById = async (membershipId) => {
+let getMembershipById = async(membershipId) => {
     let membership;
     // Validate input - important as a bad input could crash the server or lead to an attack
     if (!validator.isNumeric(membershipId, { no_symbols: true })) {
@@ -30,11 +30,10 @@ let getMembershipById = async (membershipId) => {
 
 // Insert a new membership
 // This function accepts membership data as a paramter from the controller.
-let createMembership = async (membership) => {
+let createMembership = async(membership) => {
 
     // declare variables
     let newlyInsertedMembership;
-
     // Call the membership validator - kept seperate to avoid clutter here
     let validatedMembership = membershipValidator.validateNewMembership(membership);
 
@@ -44,7 +43,7 @@ let createMembership = async (membership) => {
     } else {
 
         // membership data failed validation 
-        newlyInsertedMembership = {"error": "invalid membership"};
+        newlyInsertedMembership = { "error": "invalid membership" };
 
         // debug info
         console.log("membershipService.createMembership(): form data validate failed");
@@ -55,7 +54,7 @@ let createMembership = async (membership) => {
 };
 
 // membership update service
-let updateMembership = async (membership) => {
+let updateMembership = async(membership) => {
 
     // Declare variables and consts
     let updatedMembership;
@@ -69,7 +68,7 @@ let updateMembership = async (membership) => {
     } else {
 
         // membership data failed validation 
-        updatedMembership = {"error": "membership update failed"};
+        updatedMembership = { "error": "membership update failed" };
 
         // debug info
         console.log("membershipService.updateMembership(): form data validate failed");
@@ -79,7 +78,7 @@ let updateMembership = async (membership) => {
     return updatedMembership;
 };
 
-let deleteMembership = async (membershipId) => {
+let deleteMembership = async(membershipId) => {
 
     let deleteResult = false;
 

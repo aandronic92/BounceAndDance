@@ -1,4 +1,3 @@
-
 const validator = require('validator');
 
 // models
@@ -10,8 +9,7 @@ let validateId = (id) => {
     // check if number is numeric
     if (validator.isNumeric(id + '', { no_symbols: true, allow_negatives: false })) {
         return true;
-    }
-    else {
+    } else {
         console.log("Membership validator: invalid id parameter");
     }
     // validation failed
@@ -31,26 +29,24 @@ let validateNewMembership = (formMembership) => {
 
     // Validate form data for new Membership fields
     // Creating a Membership does not need a Membership id
-    if (
-        validator.isNumeric(formMembership.instructorId + '', { no_symbols: true, allow_negatives: false }) && 
-        !validator.isEmpty(formMembership.membershipName) && 
-        validator.isNumeric(formMembership.membershipSessions + '', { no_symbols: true, allow_negatives: false }) && 
-        validator.isCurrency(formMembership.membershipPrice + '', { no_symbols: true, allow_negatives: false }))
-    {
+    if (!validator.isEmpty(formMembership.membershipName) &&
+        validator.isNumeric(formMembership.membershipSessions + '', { no_symbols: true, allow_negatives: false }) &&
+        validator.isCurrency(formMembership.membershipPrice + '', { no_symbols: true, allow_negatives: false })) {
+
         // Validation passed
         // create a new Membership instance based on Membership model object
         validatedMembership = new Membership(
-                null,
-                formMembership.instructorId,
-                validator.escape(formMembership.membershipName),
-                formMembership.membershipSessions,
-                formMembership.membershipPrice
-            );
+            '',
+            null,
+            validator.escape(formMembership.membershipName),
+            formMembership.membershipSessions,
+            formMembership.membershipPrice
+        );
     } else {
         // debug
         console.log("validateNewMembership(): Validation failed");
     }
-
+    console.log(validatedMembership);
     // return new validated Membership object
     return validatedMembership;
 }
@@ -68,19 +64,18 @@ let validateUpdateMembership = (formMembership) => {
 
     if (
         validator.isNumeric(formMembership.membershipId + '', { no_symbols: true, allow_negatives: false }) &&
-        !validator.isEmpty(formMembership.membershipName) && 
-        validator.isNumeric(formMembership.membershipSessions + '', { no_symbols: true, allow_negatives: false }) && 
-        validator.isCurrency(formMembership.membershipPrice + '', { no_symbols: true, allow_negatives: false }))
-    {
+        !validator.isEmpty(formMembership.membershipName) &&
+        validator.isNumeric(formMembership.membershipSessions + '', { no_symbols: true, allow_negatives: false }) &&
+        validator.isCurrency(formMembership.membershipPrice + '', { no_symbols: true, allow_negatives: false })) {
         // Validation passed
         validatedMembership = new Membership(
             formMembership.membershipId,
 
-                // escape is to sanitize - it removes/ encodes any html tags
-                validator.escape(formMembership.membershipName),
-                formMembership.membershipSessions,
-                formMembership.membershipPrice
-            );
+            // escape is to sanitize - it removes/ encodes any html tags
+            validator.escape(formMembership.membershipName),
+            formMembership.membershipSessions,
+            formMembership.membershipPrice
+        );
     } else {
         // debug
         console.log("validateUpdateMembership(): Validation failed");

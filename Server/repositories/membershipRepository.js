@@ -8,14 +8,14 @@ const SQL_SELECT_ALL = 'SELECT * FROM MEMBERSHIP ORDER BY membershipPrice ASC fo
 const SQL_SELECT_BY_ID = 'SELECT * FROM MEMBERSHIP WHERE membershipId = @id for json path, without_array_wrapper;';
 
 // Second statement (Select...) returns inserted record identified by membership_id = SCOPE_IDENTITY()
-const SQL_INSERT = 'INSERT INTO MEMBERSHIP (instructorId, membershipName, membershipSessions, membershipPrice) VALUES ( @instructorId, @membershipName, @membershipSessions, @membershipPrice); SELECT * from dbo.MEMBERSHIP WHERE membershipId = SCOPE_IDENTITY();';
+const SQL_INSERT = 'INSERT INTO MEMBERSHIP ( membershipName, membershipSessions, membershipPrice) VALUES ( @membershipName, @membershipSessions, @membershipPrice); SELECT * from dbo.MEMBERSHIP WHERE membershipId = SCOPE_IDENTITY();';
 
-const SQL_UPDATE = 'UPDATE MEMBERSHIP SET instructorId = @instructorId, membershipName = @membershipName, membershipSessions = @membershipSessions, membershipPrice = @membershipPrice WHERE membershipId = @membershipId; SELECT * FROM MEMBERSHIP WHERE membershipId = @membershipId;';
+const SQL_UPDATE = 'UPDATE MEMBERSHIP SET membershipName = @membershipName, membershipSessions = @membershipSessions, membershipPrice = @membershipPrice WHERE membershipId = @membershipId; SELECT * FROM MEMBERSHIP WHERE membershipId = @membershipId;';
 
 const SQL_DELETE = 'DELETE FROM MEMBERSHIP WHERE membershipId = @id;';
 
 // Get all memberships
-let getMemberships = async () => {
+let getMemberships = async() => {
 
     let memberships;
 
@@ -23,12 +23,12 @@ let getMemberships = async () => {
     try {
         const pool = await dbConnPoolPromise
         const result = await pool.request()
-           
-            .query(SQL_SELECT_ALL);
-        
+
+        .query(SQL_SELECT_ALL);
+
         memberships = result.recordset[0];
 
-    // Catch and log errors to server side console 
+        // Catch and log errors to server side console 
     } catch (err) {
         console.log('DB Error - get all memberships: ', err.message);
     }
@@ -39,7 +39,7 @@ let getMemberships = async () => {
 
 
 // get membership by id
-let getMembershipById = async (membershipId) => {
+let getMembershipById = async(membershipId) => {
 
     let membership;
 
@@ -56,16 +56,16 @@ let getMembershipById = async (membershipId) => {
         // Send response with JSON result    
         membership = result.recordset[0];
 
-        } catch (err) {
-            console.log('DB Error - get membership by id: ', err.message);
-        }
-        
-        // return the membership
-        return membership;
+    } catch (err) {
+        console.log('DB Error - get membership by id: ', err.message);
+    }
+
+    // return the membership
+    return membership;
 };
 
 // insert/ create a new membership
-let createMembership = async (membership) => {
+let createMembership = async(membership) => {
 
     // Declare constants and variables
     let insertedMembership;
@@ -74,32 +74,32 @@ let createMembership = async (membership) => {
     try {
         // Get a DB connection and execute SQL
         const pool = await dbConnPoolPromise
+        console.log(membership)
         const result = await pool.request()
 
-            // set named parameter(s) in query
-            // checks for potential sql injection  
-            .input('instructorId', sql.Int,  membership.instructorId)
-            .input('membershipName', sql.NVarChar, membership.membershipName)
-            .input('membershipSessions', sql.Int,  membership.membershipSessions)
+        // set named parameter(s) in query 
+        // checks for potential sql injection  
+        .input('membershipName', sql.NVarChar, membership.membershipName)
+            .input('membershipSessions', sql.Int, membership.membershipSessions)
             .input('membershipPrice', sql.Decimal, membership.membershipPrice)
 
-            // Execute Query
-            .query(SQL_INSERT);      
+        // Execute Query
+        .query(SQL_INSERT);
 
         // The newly inserted membership is returned by the query    
         insertedMembership = result.recordset[0];
 
         // catch and log DB errors
-        } catch (err) {
-            console.log('DB Error - error inserting a new membership: ', err.message);
-        }
+    } catch (err) {
+        console.log('DB Error - error inserting a new membership: ', err.message);
+    }
 
-        // Return the membership data
-        return insertedMembership;
+    // Return the membership data
+    return insertedMembership;
 };
 
 // update an existing membership
-let updateMembership = async (membership) => {
+let updateMembership = async(membership) => {
 
     // Declare variables
     let updatedMembership;
@@ -108,32 +108,31 @@ let updateMembership = async (membership) => {
         // Get a DB connection and execute SQL
         const pool = await dbConnPoolPromise
         const result = await pool.request()
- 
-            // set named parameter(s) in query
-            // checks for potential sql injection
-            .input('membershipId', sql.Int, membership.membershipId)  
-            .input('instructorId', sql.Int, membership.instructorId)    
+
+        // set named parameter(s) in query
+        // checks for potential sql injection
+        .input('membershipId', sql.Int, membership.membershipId)
             .input('membershipName', sql.NVarChar, membership.membershipName)
-            .input('membershipSessions', sql.Int, membership.membershipSessions) 
+            .input('membershipSessions', sql.Int, membership.membershipSessions)
             .input('membershipPrice', sql.Decimal, membership.membershipPrice)
- 
-            // Execute Query
-            .query(SQL_UPDATE);      
- 
+
+        // Execute Query
+        .query(SQL_UPDATE);
+
         // The newly inserted membership is returned by the query    
         updatedMembership = result.recordset[0];
- 
+
         // catch and log DB errors
-        } catch (err) {
-            console.log('DB Error - error updating membership: ', err.message);
-        }
- 
-        // Return the membership data
-        return updatedMembership;
- };
- 
- // delete a package
-let deleteMembership = async (membershipId) => {
+    } catch (err) {
+        console.log('DB Error - error updating membership: ', err.message);
+    }
+
+    // Return the membership data
+    return updatedMembership;
+};
+
+// delete a package
+let deleteMembership = async(membershipId) => {
 
     // record how many rows were deleted  > 0 = success
     let rowsAffected;
@@ -149,16 +148,16 @@ let deleteMembership = async (membershipId) => {
             .query(SQL_DELETE);
 
         // Was the membership deleted?    
-        rowsAffected = Number(result.rowsAffected);     
+        rowsAffected = Number(result.rowsAffected);
 
-        } catch (err) {
-            console.log('DB Error - get membership by id: ', err.message);
-        }
-        // Nothing deleted
-        if (rowsAffected === 0)
-            return false;
-        // successful delete
-        return true;    
+    } catch (err) {
+        console.log('DB Error - get membership by id: ', err.message);
+    }
+    // Nothing deleted
+    if (rowsAffected === 0)
+        return false;
+    // successful delete
+    return true;
 };
 
 module.exports = {
